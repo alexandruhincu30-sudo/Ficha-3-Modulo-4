@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX 50
+int main()
+{
+	char texto[MAX+1];
+	int i,idx;
+	fflush(stdin);
+	gets(texto);
+	texto[MAX]='\0';
+
+	for(idx=0;texto[idx]!='\0';idx++)
+	{
+	if(idx%2==1)
+	texto[idx]='*';
+	}
+	printf("Nova String: %s\n",texto);
+	return 0;
+}
