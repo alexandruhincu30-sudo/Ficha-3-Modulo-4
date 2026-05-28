@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include<string.h>
+#define MAX 80
+int verif_caracter (int texto[]);
+int main()
+{
+	char texto[MAX+1];
+	int idx,caract;
+	fflush(stdin);
+	gets(texto);
+	texto[MAX]='\0';
+
+	for(idx=0;texto[idx]!='\0';idx++)
+	{
+		if(verif_caracter(texto[idx])==1
