@@ -1,15 +1,38 @@
 #include <stdio.h>
 #include<string.h>
 #define MAX 80
-int verif_caracter (int texto[]);
+int verif_caracter(int texto);
+int verif_letra(int texto);
 int main()
 {
-	char texto[MAX+1];
-	int idx,caract;
+	char texto[MAX + 1];
+	int idx, caract=0, maiscula=0;
 	fflush(stdin);
 	gets(texto);
-	texto[MAX]='\0';
+	texto[MAX] = '\0';
 
-	for(idx=0;texto[idx]!='\0';idx++)
+	for (idx = 0; texto[idx] != '\0'; idx++)
 	{
-		if(verif_caracter(texto[idx])==1
+		if (verif_caracter(texto[idx]) == 1)
+			caract++;
+		else
+			if (verif_letra(texto[idx]))
+				maiscula++;
+	}
+	printf("No texto existem %d maiusculas e %d outros caracteres. ", maiscula, caract);
+	return 0;
+}
+int verif_caracter(int texto)
+{
+	if ((texto >= 32 && texto <= 47) || (texto >= 58 && texto <= 64) || (texto >= 91 && texto <= 96) || (texto >= 123 && texto <= 126))
+		return 1;
+	else
+		return 0;
+}
+int verif_letra(int texto)
+{
+	if (texto >= 'A' && texto <= 'Z')
+		return 1;
+	else
+		return 0;
+}
