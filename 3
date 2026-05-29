@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include<string.h>
+#define MAX 80
+int main()
+{
+	char texto[MAX + 1];
+	int idx, alteracoes = 0;
+	char letra;
+
+	printf("Insira uma letra: ");
+	if (scanf(" %c", &letra) != 1) return 1;
+
+	printf("Insira o texto: ");
+	if (scanf(" %79[^\n]", texto) != 1) texto[0] = '\0';
+
+	for (idx = 0; texto[idx] != '\0'; idx++)
+	{
+		if (texto[idx] == letra)
+		{
+			texto[idx] = '*';
+			alteracoes++;
+		}
+	}
+	printf("Numero de alteracoes: %d\n", alteracoes);
+	printf("Texto alterado: %s\n", texto);
+
+	return 0;
+}
