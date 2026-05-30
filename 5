@@ -1,0 +1,47 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#define MAX 20
+
+int main()
+{
+	char texto[MAX + 1];
+	char grupos[8][5] = {"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+	int i, k, j;
+	int len = 0;
+	int encontrada = 0;
+	char letra;
+	char menos;
+	char mais;
+
+	printf("Indique a palavra:\n");
+	gets(texto);
+
+	while (texto[len] != '\0') {
+		len++;
+	}
+	if (len < 1 || len > MAX) {
+		printf("Texto inválido.\n");
+		return 0;
+	}
+
+	printf("Tecla a utilizar:\n");
+	for (i = 0; i < len; i++) {
+		letra = texto[i];
+		encontrada = 0;
+		for (k = 0; k < 8; k++) {
+			for (j = 0; grupos[k][j] != '\0'; j++) {
+				menos = grupos[k][j];
+				mais = menos - 'a' + 'A';
+				if (letra == menos || letra == mais) {
+					printf("%d: %d vezes.\n", k + 2, j + 1);
+					encontrada = 1;
+					break;
+				}
+			}
+			if (encontrada) break;
+		}
+	}
+
+	return 0;
+}
