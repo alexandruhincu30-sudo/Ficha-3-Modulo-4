@@ -6,13 +6,7 @@
 int main()
 {
 	char texto[MAX + 1];
-	char grupos[8][5] = {"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-	int i, k, j;
 	int len = 0;
-	int encontrada = 0;
-	char letra;
-	char menos;
-	char mais;
 
 	printf("Indique a palavra:\n");
 	gets(texto);
@@ -24,6 +18,19 @@ int main()
 		printf("Texto inválido.\n");
 		return 0;
 	}
+
+	processarPalavra(texto, len);
+
+	return 0;
+}
+
+void processarPalavra(char texto[], int len) {
+	char grupos[8][5] = {"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+	int i, k, j;
+	int encontrada = 0;
+	char letra;
+	char menos;
+	char mais;
 
 	printf("Tecla a utilizar:\n");
 	for (i = 0; i < len; i++) {
@@ -42,6 +49,4 @@ int main()
 			if (encontrada) break;
 		}
 	}
-
-	return 0;
 }
